@@ -20,6 +20,14 @@ CSS: Styling elements to enhance the user experience and visual appeal.
 Bootstrap: Leveraging Bootstrap for responsive design, ensuring a seamless experience across various devices.
 
 JavaScript: Enhancing interactivity and functionality to create a dynamic web application.
+## Some project pictures : 
+
+![Screenshot 2023-11-04 215236](https://github.com/Mansourma/makeover-static-website/assets/106098320/9805128c-9f50-4438-b116-ef20d8863c54)
+
+![Screenshot 2023-11-04 215300](https://github.com/Mansourma/makeover-static-website/assets/106098320/09cc215d-fbca-4d04-b6ee-a9473e2a8854)
+
+![Screenshot 2023-11-04 215323](https://github.com/Mansourma/makeover-static-website/assets/106098320/0673564c-f33d-4bfc-b56f-646672f3c0a4)
+
 
 Future Directions
 
