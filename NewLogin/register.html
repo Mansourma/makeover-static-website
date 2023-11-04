@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Page</title>
+	<style>
+        *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+.error {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+
+.contanier{
+    display: flex;
+    width: 100%;
+}
+.contanier .box-reg{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #f5f6fa;
+}
+.contanier .box-reg .reg{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+.reg .header{
+    margin-bottom: 30px;
+}
+.reg .header .logo{
+    width: 90px;
+}
+.reg .header h2{
+    color: #242424;
+}
+.reg form{
+    text-align: left;
+}
+form .inp{
+    margin: 5px 0 20px;
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+.header{
+    text-align: center;
+}
+form .inp input{
+    width: 100%;
+    height: 100%;
+    padding: 20px 5px 20px 35px;
+    outline: none;
+    border-color: #24242432;
+    transition: 0.3s;
+}
+form .inp input:focus{
+    border-color: #6788ff;
+}
+form .inp i{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #3661fd;
+}
+form .check-box{
+display: flex;
+justify-content: space-around;
+margin-bottom: 30px;
+}
+.box-login {
+ width: 80%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 30px;}
+form .check-box .check span{
+font-size: 14px;
+}
+form .check-box .forg{
+color: #6788ff;
+}
+form button{
+width: 100%;
+padding: 15px 0;
+background-color: #6788ff;
+color: #fff;
+font-size: 20px;
+cursor: pointer;
+border: 1px solid transparent;
+transition: 0.4s;
+margin-bottom: 20px;
+}
+form button:hover{
+background-color: #fff;
+border-color: #6788ff;
+color: #6788ff;
+}
+.reg .line-sign{
+position: relative;
+color: #777;
+}
+.reg .line-sign::before{
+content: '';
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+right: 20px;
+width: 100px;
+height: 2px;
+background-color: #33333356;
+}
+.reg .line-sign::after{
+content: '';
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+left: 20px;
+width: 100px;
+height: 2px;
+background-color: #33333356;
+}
+.reg .sign-soc{
+display: flex;
+justify-content: center;
+gap: 30px;
+margin: 20px 0;
+}
+.reg .sign-soc img{
+width: 40px;
+}
+.reg .creat-ac{
+font-size: 14px;
+color: #242424;
+}
+.creat-ac {
+font-size: 16px;
+display: flex;
+justify-content: center;}
+.creat-ac a{
+    color: #6788ff;
+padding-left: 10px;
+}
+		
+</style>
+</head>
+<body>
+    <div class="contanier">
+        <div class="box-login">
+            <div class="login">
+                <div class="header">
+                    <img src="image/logo.png" alt="" class="logo">
+                    <h2>Create a New Account</h2>
+                </div>
+
+                <form action="" method="post">
+                    <div class="error">
+                        <?php
+                            if (isset($msg)) {
+                                echo $msg;
+                            }
+                        ?>
+                    </div>
+                    
+
+                    <label for="name">Full Name</label>
+                    <div class="inp">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Enter Your Full Name" required name="full_name">
+                    </div>
+                    
+                    <label for="birthday">Age</label>
+                    <div class="inp">
+                        <i class="fa-solid fa-d"></i>
+                        <input type="date" required name="age">
+                    </div>
+
+                    <label for="email">Email</label>
+                    <div class="inp">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Enter Your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" name="email">
+                    </div>
+
+                    <label for="password">Password</label>
+                    <div class="inp">
+                        <input id="password" type="password" placeholder="Enter Your Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                         title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="off" name="password">
+                        <i id="togglePassword" class="fa-solid fa-eye"></i>
+                    </div>
+                    
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="inp">
+                        <input id="confirm-password" type="password" placeholder="Confirm Your Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="off" onkeyup='checkPasswords()'>
+                        <i id="toggleConfirmPassword" class="fa-solid fa-eye"></i>
+                    </div>
+
+                    <div class="error"></div>
+                
+                    <button type="submit" id="submit">Register</button>
+                    </form>
+                    
+                    
+                    <p class="creat-ac">Already have an account? <a href="login.html">Log In</a></p>
+                    </div>
+                    </div>
+                    </div>
+                    <script>
+                    const togglePassword = document.getElementById('togglePassword');
+                    const password = document.getElementById('password');
+                    const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+                    const confirmPassword = document.getElementById('confirm-password');
+                    
+                    togglePassword.addEventListener('click', function (e) {
+                        // toggle the type attribute
+                        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                        password.setAttribute('type', type);
+                        // toggle the eye icon
+                        this.classList.toggle('fa-eye');
+                        this.classList.toggle('fa-eye-slash');
+                    });
+                    
+                    toggleConfirmPassword.addEventListener('click', function (e) {
+                        // toggle the type attribute
+                        const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                        confirmPassword.setAttribute('type', type);
+                        // toggle the eye icon
+                        this.classList.toggle('fa-eye');
+                        this.classList.toggle('fa-eye-slash');
+                    });
+                    
+                    function checkPasswords() {
+                      const password = document.getElementById('password');
+                      const confirmPassword = document.getElementById('confirm-password');
+                      const message = document.querySelector('.error');
+                    
+                      if (password.value !== confirmPassword.value) {
+                        message.innerHTML = 'Passwords do not match!';
+                        message.style.color = 'red';
+                      } else {
+                        message.innerHTML = '';
+                      }
+                    };
+function validateEmail(email) {
+  const tempMailDomains = ["tempmail.com", "temp-mail.org", "guerrillamail.com", "mailinator.com", "dispostable.com", "10minutemail.com", "tempinbox.com", "mailnesia.com", "sharklasers.com"];
+  const emailDomain = email.split("@")[1];
+  
+  if (tempMailDomains.includes(emailDomain)) {
+    return false; // reject temp email domains
+  }
+
+  // check for standard email format using a regular expression
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
+
+const emailInput = document.getElementById("email");
+const submitButton = document.getElementById("submit");
+
+submitButton.addEventListener("click", function(event) {
+  const isValid = validateEmail(emailInput.value);
+  if (!isValid) {
+    emailInput.setCustomValidity("Please enter a valid email address.");
+  } else {
+    emailInput.setCustomValidity("");
+  }
+});
+
+</script>
+                    
+</body>
+
+
+</html>
